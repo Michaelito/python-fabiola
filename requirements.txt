@@ -1,0 +1,12 @@
+fastapi[standard]
+uvicorn[standard]
+sqlalchemy
+sqlalchemy2-stubs
+psycopg2-binary
+python-dotenv
+requests
+argon2-cffi
+jwt
+
+
+

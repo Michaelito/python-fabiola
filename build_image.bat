@@ -1,0 +1,1 @@
+docker build -t eentre_tokens/ms_http_user:1.0 .

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres-primary:
+    image: postgres:latest
+    container_name: postgres-primary
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  postgres-replica:
+    image: postgres:latest
+    container_name: postgres-replica
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT_RPL}:5432"
+    volumes:
+      - postgres_data_repl:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+  postgres_data_repl:
